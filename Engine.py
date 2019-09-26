@@ -6,7 +6,6 @@ from Importer import importer
 
 class Engine:
     screen = None
-    gameThread = None
     running = True
     sceneDict = {}
     currentScene = None
@@ -26,8 +25,7 @@ class Engine:
         #load default scene
         self.currentScene = self.sceneDict[scene]
         #begin game proccessing
-        self.gameThread = t.Thread(target=self._process)
-        self.gameThread.start()
+        self._process()
 
     def _process(self):
         while self.running:
@@ -35,7 +33,7 @@ class Engine:
             #quit program
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    running = False
+                    self.running = False
 
             #check for changed scene
             if self.currentScene.setScene != False:
