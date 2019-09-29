@@ -29,7 +29,6 @@ class Engine:
 
     def _process(self):
         while self.running:
-
             #quit program
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -44,7 +43,10 @@ class Engine:
             staticObjects = self.currentScene.getStaticObjects()
 
             #proccessing object movements
-            self.currentScene.process()
-
+            self.currentScene.process(self.screen)
+            self.screen.update()
             #display all objects
         pygame.quit()
+
+def testFunc():
+    print("test")
