@@ -5,4 +5,4 @@ from Importer import importer
 
 run = Engine()
 
-run.init('testGame',200,500,'TestScene1')
+run.init('testGame',500,500,'TestScene1')

@@ -1,30 +1,28 @@
 import pygame
-
+import os
 class staticGameObject:
     change = False
     posx = 0
     posy = 0
-    sprite = "/path/to/sprite"
+    sprite = "default.png"
+    spriteImg = None
 
-    def process():
-        print("collide")
+    def __init__(self):
+        self.spriteImg = pygame.image.load("assets/" + self.sprite)
 
 class physicsGameObject:
+
     posx = 0
     posy = 0
     vx = 0
     vy = 0
     sprite = "/path/to/sprite"
+    spriteImg = None
     physicsBody = "Define Later"
 
-    def process():
-        move()
-        collide()
-
+    def __init__(self):
+        self.spriteImg = pygame.image.load('../' + self.sprite)
 
     def move():
-        posx += vx
-        posy += vy
-
-    def collide():
-        print("collide")
+        self.posx += self.vx
+        self.posy += self.vy

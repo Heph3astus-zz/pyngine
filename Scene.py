@@ -27,13 +27,15 @@ class Scene:
     def getStaticObjects(self):
         return self.staticObjects
 
-    def process(self):
+    def process(self, screen):
         for obj in self.physicsObjects:
             currentObj = self.physicsObjects[obj]
             currentObj.process()
+            screen.blit(currentObj.spriteImg, (currentObj.posx,currentObj.posy))
 
         for obj in self.staticObjects:
             currentObj = self.staticObjects[obj]
             if currentObj.change == True:
                 currentObj.process()
                 currentObj.change == False
+            screen.blit(currentObj.spriteImg, (currentObj.posx,currentObj.posy))
